@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { getAuth,  createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  updateProfile,
+} from "firebase/auth";
+import { app, auth } from "../firebase.config";
+import { Link, useNavigate } from "react-router";
 
 const Signup = () => {
-const auth = getAuth()
   const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate()
 
   const handleName = (e) => {
     setUserInfo((prev) => {
@@ -38,20 +45,31 @@ const auth = getAuth()
     } else {
       createUserWithEmailAndPassword(auth, userInfo.email, userInfo.password)
         .then((userCredential) => {
-          // Signed up
-          const user = userCredential.user;
-          // ...
+          sendEmailVerification(auth.currentUser).then(() => {
+            updateProfile(auth.currentUser, {
+              displayName: userInfo.name ,
+              photoURL: "https://cdn.vectorstock.com/i/500p/66/13/default-avatar-profile-icon-social-media-user-vector-49816613.jpg",
+            })
+              .then(() => {
+                const user = userCredential.user;
+                console.log(user)
+                navigate("/login")
+              })
+              .catch((error) => {
+                console.log(error)
+              });
+          });
         })
         .catch((error) => {
           const errorCode = error.code;
-    const errorMessage = error.message;
-          if (errorCode.includes("auth/email-already-in-use")){
+          const errorMessage = error.message;
+          if (errorCode.includes("auth/email-already-in-use")) {
             toast.error("Email already in use");
             setUserInfo({
               name: "",
               email: "",
               password: "",
-            })
+            });
           }
         });
     }
@@ -115,7 +133,8 @@ const auth = getAuth()
                       <label htmlFor="" className="text-white">
                         User Name :
                       </label>
-                      <input value={userInfo.name}
+                      <input
+                        value={userInfo.name}
                         onChange={handleName}
                         className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-2 mb-5"
                         type="text"
@@ -126,7 +145,8 @@ const auth = getAuth()
                       <label htmlFor="email" className="text-white">
                         Enter your Email
                       </label>
-                      <input value={userInfo.email}
+                      <input
+                        value={userInfo.email}
                         onChange={handleEmail}
                         className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-2 mb-5"
                         type="email"
@@ -137,7 +157,8 @@ const auth = getAuth()
                       <label htmlFor="password" className="text-white">
                         Enter Your Password
                       </label>
-                      <input value={userInfo.password}
+                      <input
+                        value={userInfo.password}
                         onChange={handlePassword}
                         className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-2"
                         type="password"
@@ -177,6 +198,15 @@ const auth = getAuth()
                 </div>
               </div>
             </form>
+            <p className="my-2 text-center font-semibold text-[#b99a8e]">
+              Have an account yet?
+              <Link
+                to={"/login"}
+                className="ml-2 font-semibold text-white"
+              >
+                Sign in
+              </Link>
+            </p>
           </div>
           <div className="flex-1 text-center hidden lg:flex">
             <div
