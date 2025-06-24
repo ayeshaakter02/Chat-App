@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Sidebar from "../component/Sidebar";
+import Userlist from "../component/Userlist";
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <div className="grid sm:grid-cols-1 lg:grid-cols-3 w-full">
+      <Userlist/>
+    </div>
+  );
+};
 
-export default Home
+export default Home;

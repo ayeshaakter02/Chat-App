@@ -151,12 +151,12 @@ const Login = () => {
               <p className="mr-3 md:mr-0 text-[#b99a8e]">
                 If you don't have an account..
               </p>
-              <button
+              <a
                 to={"/signup"}
                 className=" register text-white bg-[#ac4b22]  rounded-xl py-2 px-5 hover:scale-110 hover:bg-[#8a6455c9] font-semibold duration-300"
               >
                 Register
-              </button>
+              </a>
             </div>
           </div>
           <div className="md:block hidden w-1/2">

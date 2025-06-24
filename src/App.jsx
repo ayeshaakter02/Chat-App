@@ -7,9 +7,20 @@ import Signup from './pages/Signup';
 import Not_found from './pages/not_found';
 import Login from './pages/Login';
 import Home from './pages/Home';
+import Message from './pages/Message';
+import Rootlayout from './component/Rootlayout';
 
 
 const router = createBrowserRouter([
+    {
+    path: "/",
+    Component: Rootlayout,
+    children: [
+      { index: true, Component: Home },
+      { path: "message", Component: Message }
+    ]
+  },
+
   {
     path: "/signup",
     Component: Signup,
