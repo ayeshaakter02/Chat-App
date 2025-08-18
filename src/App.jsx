@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Message from './pages/Message';
 import Rootlayout from './component/Rootlayout';
+import Userlist from './component/Userlist';
 
 
 const router = createBrowserRouter([
@@ -22,6 +23,17 @@ const router = createBrowserRouter([
   },
 
   {
+    path: "/",
+    Component: Rootlayout,
+    children: [
+      { index: true, Component: Home},
+      // { path: "/friendrequest", Component: FriendRequestList },
+      { path: "/userlist", Component: Userlist },
+      // { path: "/blocklist", Component: BlockList },
+    ],
+  },
+
+  {
     path: "/signup",
     Component: Signup,
   },
@@ -29,10 +41,10 @@ const router = createBrowserRouter([
     path: "/login",
     Component: Login,
   },
-  {
-    path: "/",
-    Component: Home,
-  },
+  // {
+  //   path: "/",
+  //   Component: Home,
+  // },
   {
     path: "*",
     Component: Not_found,
