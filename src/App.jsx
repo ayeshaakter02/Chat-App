@@ -10,6 +10,8 @@ import Home from './pages/Home';
 import Message from './pages/Message';
 import Rootlayout from './component/Rootlayout';
 import Userlist from './component/Userlist';
+import BlockList from './component/BlockList';
+import FriendRequestList from './component/FriendRequestList';
 
 
 const router = createBrowserRouter([
@@ -27,9 +29,9 @@ const router = createBrowserRouter([
     Component: Rootlayout,
     children: [
       { index: true, Component: Home},
-      // { path: "/friendrequest", Component: FriendRequestList },
+      { path: "/friendrequest", Component: FriendRequestList },
       { path: "/userlist", Component: Userlist },
-      // { path: "/blocklist", Component: BlockList },
+      { path: "/blocklist", Component: BlockList },
     ],
   },
 

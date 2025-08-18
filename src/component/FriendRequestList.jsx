@@ -55,10 +55,7 @@ const FriendRequestList = () => {
                   />
                   <div className="min-w-0 flex-auto">
                     <p className="text-md font-semibold text-gray-900">
-                      {item.name}
-                    </p>
-                    <p className="mt-1 truncate text-xs/5 text-gray-500">
-                      {item.email}
+                      {item.sendername}
                     </p>
                   </div>
                 </div>
