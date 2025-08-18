@@ -83,7 +83,7 @@ const Login = () => {
             console.log(error);
           });
 
-        dispatch(userSigninInfo(user));
+        dispatch(userLoginInfo(user));
         navigate("/");
       })
       .catch((error) => {

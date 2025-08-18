@@ -4,7 +4,7 @@ import  chatSlice  from './slices/chatSlice'
 
 export const store = configureStore({
   reducer: {
-    userSignin : userSlice,
+    userLogin : userSlice,
     chatInfo: chatSlice,
   },
 })
