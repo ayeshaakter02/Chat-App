@@ -54,51 +54,73 @@ const FriendListmsg = () => {
 
   return (
     <>
-      {/* <div className="border border-[#ac4b22] rounded-2xl p-4 m-4 h-120">
-        <h1 className="text-[#ac4b22] font-bold text-xl">Friend List</h1>
-        <ul
-          role="list"
-          className=" divide-gray-100  h-100 overflow-y-scroll pr-2"
-        >
-          {requestList.map((item) => (
-            <li className="flex justify-between gap-x-6 py-5">
-              <div className="flex min-w-0 gap-x-4">
-                <img
-                  className="size-12 flex-none rounded-full bg-gray-50"
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                  alt=""
-                />
-                <div className="min-w-0 flex-auto">
+      <div className="flex h-110 sm:h-50 md:h-150 xl:h-210 xl:w-60 flex-col overflow-y-scroll border-r-2 border-indigo-400">
+        {/* search compt */}
+        <div className="border-b-2 border-indigo-400 px-2 py-4">
+          <input
+            onChange={handleSearch}
+            type="text"
+            placeholder="Search chatting"
+            className="w-full rounded-2xl bg-indigo-200 px-2 py-2"
+          />
+        </div>
+        {/* end search compt */}
+        {/* user list */}
+        {filterResult
+          ? filterResult.map((item) => (
+              <div
+                onClick={() => handleSelectuser(item)}
+                className={`flex gap-2 border-b-2 border-indigo-400 px-2 py-4 ${user?.id == item.senderid || user?.id == item.receiverid ? "bg-indigo-700" : "bg-transparent"}`}
+              >
+                <div className="hidden sm:flex">
+                  <img
+                    className="h-8 w-8 rounded-full"
+                    src="images/user.jpg"
+                    alt="user"
+                  />
+                </div>
+                <div className="ml-2">
                   {auth.currentUser.uid == item.senderid ? (
-                    <div>
-                      <p className="text-md font-semibold text-gray-900">
-                        {item.receivername}
-                      </p>
-                      <p className="mt-1 truncate text-xs/5 text-gray-500">
-                        {item.email}
-                      </p>
+                    <div className="text-lg font-semibold text-white">
+                      {item.receivername}
                     </div>
                   ) : (
-                    <div>
-                      <p className="text-md font-semibold text-gray-900">
-                        {item.sendername}
-                      </p>
+                    <div className="text-lg font-semibold text-white">
+                      {item.sendername}
                     </div>
                   )}
                 </div>
               </div>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => handleBlock(item)}
-                  className="bg-[#ac4b22] text-white font-medium rounded-2xl flex justify-center items-center p-2 cursor-pointer"
-                >
-                  Block
-                </button>
+            ))
+          : friendlist.map((item) => (
+              <div
+                onClick={() => handleSelectuser(item)}
+                className={`flex gap-2 border-b-2 border-indigo-400 px-2 py-4 ${user?.id == item.senderid || user?.id == item.receiverid ? "bg-indigo-700" : "bg-transparent"}`}
+              >
+                <div className="hidden sm:flex">
+                  <img
+                    className="h-8 w-8 rounded-full"
+                    src="images/user.jpg"
+                    alt="user"
+                  />
+                </div>
+                <div className="ml-2">
+                  {auth.currentUser.uid == item.senderid ? (
+                    <div className="text-lg font-semibold text-white">
+                      {item.receivername}
+                    </div>
+                  ) : (
+                    <div className="text-lg font-semibold text-white">
+                      {item.sendername}
+                    </div>
+                  )}
+
+                </div>
               </div>
-            </li>
-          ))}
-        </ul>
-      </div> */}
+            ))}
+
+        {/* end user list */}
+      </div>
     </>
   );
 };

@@ -12,6 +12,7 @@ import Rootlayout from './component/Rootlayout';
 import Userlist from './component/Userlist';
 import BlockList from './component/BlockList';
 import FriendRequestList from './component/FriendRequestList';
+import FriendListmsg from './component/FriendListmsg';
 
 
 const router = createBrowserRouter([
@@ -43,10 +44,10 @@ const router = createBrowserRouter([
     path: "/login",
     Component: Login,
   },
-  // {
-  //   path: "/",
-  //   Component: Home,
-  // },
+  {
+    path: "/friendListmsg",
+    Component: FriendListmsg,
+  },
   {
     path: "*",
     Component: Not_found,
