@@ -1,16 +1,28 @@
+// import React, { useState } from "react";
+// import toast, { Toaster } from "react-hot-toast";
+// import {
+//   createUserWithEmailAndPassword,
+//   sendEmailVerification,
+//   updateProfile,
+// } from "firebase/auth";
+// import { app, auth } from "../firebase.config";
+// import { Link, useNavigate } from "react-router";
+// import { getDatabase, ref, set } from "firebase/database";
+
 import React, { useState } from "react";
+import { Link } from "react-router";
 import toast, { Toaster } from "react-hot-toast";
 import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
   updateProfile,
 } from "firebase/auth";
+import { useNavigate } from "react-router";
 import { app, auth } from "../firebase.config";
-import { Link, useNavigate } from "react-router";
 import { getDatabase, ref, set } from "firebase/database";
 
 const Signup = () => {
-  const [userInfo, setUserInfo] = useState({
+    const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
     password: "",
@@ -39,9 +51,8 @@ const Signup = () => {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    console.log(userInfo);
     if (!userInfo.name || !userInfo.email || !userInfo.password) {
-      toast.error("Please fill up the all filed");
+      toast.error("All fileds are required");
     } else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(userInfo.email)) {
       toast.error("Invalid email address");
     } else {
@@ -57,15 +68,14 @@ const Signup = () => {
                 const user = userCredential.user;
 
                 set(ref(db, "userslist/" + user.uid), {
-                  name: user.displayName,
+                  name:user.displayName,
                   email: user.email,
-                })
-                  .then(() => {
-                    navigate("/login");
-                  })
-                  .catch((error) => {
-                    console.log(error);
-                  });
+                }).then(() => {
+                  navigate("/login")
+                }).catch((error) => {
+                console.log(error);
+              })
+              
               })
               .catch((error) => {
                 // An error occurred
@@ -76,7 +86,8 @@ const Signup = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          if (errorCode.includes("auth/email-already-in-use")) {
+          // ..
+          if (errorCode.include("auth/email-already-in-use")) {
             toast.error("Email already in use");
             setUserInfo({
               name: "",

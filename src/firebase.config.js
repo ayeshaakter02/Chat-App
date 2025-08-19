@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBy3-8MB3egs1dHF5vYzSkbe1CMCrTdwrk",
-  authDomain: "chatapp-ffbbd.firebaseapp.com",
-  projectId: "chatapp-ffbbd",
-  storageBucket: "chatapp-ffbbd.firebasestorage.app",
-  messagingSenderId: "183368954477",
-  appId: "1:183368954477:web:c2f7258a9b2ff8ed85c564"
+  apiKey: "AIzaSyD_a82rqNGRgvDDfpK-IU7F4mAs61t-OgI",
+  authDomain: "project-cda85.firebaseapp.com",
+  projectId: "project-cda85",
+  storageBucket: "project-cda85.firebasestorage.app",
+  messagingSenderId: "689894240814",
+  appId: "1:689894240814:web:2f848921a5c9059b3c25bf"
 };
 
 // Initialize Firebase
