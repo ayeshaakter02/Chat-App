@@ -19,35 +19,38 @@ const BlockList = () => {
     onValue(requestRef, (snapshot) => {
       const array = [];
       snapshot.forEach((item) => {
-        if (auth.currentUser.uid == item.val().blockbyuser) {
-          array.push({ ...item.val(), id: item.key });
+        if (
+          auth.currentUser.uid == item.val().blockbyuser 
+        ){
+            array.push({ ...item.val(), id: item.key });
         }
+          
       });
       setBlockList(array);
     });
   }, []);
 
-  const handleUnblock = (item) => {
-    if (auth.currentUser.uid == item.blockbyuser) {
+  const handleUnblock = (item) =>{
+    if(auth.currentUser.uid == item.blockbyuser) {
       set(push(ref(db, "friendList/")), {
-        senderid: item.blockbyuser,
-        sendername: item.blockbyusername,
-        receiverid: item.blockuser,
-        receivername: item.blockusername,
-      }).then(() => {
-        remove(ref(db, "blockList/" + item.id));
-      });
-    } else {
+              senderid: item.blockbyuser,
+              sendername: item.blockbyusername,
+              receiverid: item.blockuser,
+              receivername: item.blockusername,
+            }).then(() => {
+              remove(ref(db, "blockList/" + item.id));
+            });
+    }else{
       set(push(ref(db, "friendList/")), {
-        senderid: item.blockuser,
-        sendername: item.blockusername,
-        receiverid: item.blockbyuser,
-        receivername: item.blockbyusername,
-      }).then(() => {
-        remove(ref(db, "blockList/" + item.id));
-      });
+              senderid: item.blockuser,
+              sendername: item.blockusername,
+              receiverid: item.blockbyuser,
+              receivername: item.blockbyusername,
+            }).then(() => {
+              remove(ref(db, "blockList/" + item.id));
+            });
     }
-  };
+  }
 
   return (
     <>
@@ -68,7 +71,7 @@ const BlockList = () => {
                   alt=""
                 />
                 <div className="min-w-0 flex-auto">
-                  {auth.currentUser.uid == item.senderid ? (
+                  {auth.currentUser.uid == item.blockbyuser ? (
                     <div>
                       <p className="text-md font-semibold text-gray-900">
                         {item.blockusername}

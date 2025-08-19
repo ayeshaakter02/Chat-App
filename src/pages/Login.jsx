@@ -72,7 +72,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
 
-        set(ref(db, "userlist/" + user.uid), {
+        set(ref(db, "userslist/" + user.uid), {
           name: user.displayName,
           email: user.email,
         })

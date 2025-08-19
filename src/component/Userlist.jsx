@@ -79,8 +79,8 @@ const Userlist = () => {
             role="list"
             className=" divide-gray-100  h-100 overflow-y-scroll pr-2"
           >
-            {checkFriendId.includes(auth.currentUser.uid + item.id) ||
-            checkFriendId.includes(item.id + auth.currentUser.uid) ? (
+           {checkFriendId.includes(auth.currentUser.uid + item.id) ||
+                  checkFriendId.includes(item.id + auth.currentUser.uid) ? (
               <li className="flex justify-between gap-x-6 py-5">
                 <div className="flex min-w-0 gap-x-4">
                   <img
@@ -102,7 +102,7 @@ const Userlist = () => {
                 </button>
               </li>
             ) : checkRequestId.includes(auth.currentUser.uid + item.id) ||
-              checkRequestId.includes(item.id + auth.currentUser.uid) ? (
+                    checkRequestId.includes(item.id + auth.currentUser.uid) ? (
               <li className="flex justify-between gap-x-6 py-5">
                 <div className="flex min-w-0 gap-x-4">
                   <img
@@ -124,7 +124,7 @@ const Userlist = () => {
                 </button>
               </li>
             ) : checkBlockId.includes(auth.currentUser.uid + item.id) ||
-              checkBlockId.includes(item.id + auth.currentUser.uid) ? (
+                    checkBlockId.includes(item.id + auth.currentUser.uid) ? (
               <li className="flex justify-between gap-x-6 py-5">
                 <div className="flex min-w-0 gap-x-4">
                   <img
