@@ -3,6 +3,7 @@ import Sidebar from "../component/Sidebar";
 import Userlist from "../component/Userlist";
 import FriendRequestList from "../component/FriendRequestList";
 import FriendList from "../component/FriendList";
+import BlockList from "../component/BlockList";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <FriendList/>
       <Userlist/>
       <FriendRequestList/>
+      <BlockList/>
     </div>
   );
 };
