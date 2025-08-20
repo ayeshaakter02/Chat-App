@@ -43,13 +43,13 @@ const Sidebar = () => {
   };
   return (
   <div className="bg-white">
-    <div className="md:flex w-80 h-screen bg-white border-r">
-      <div className="mx-auto py-10">
-        <h1 className="text-2xl font-bold mb-10 cursor-pointer text-[#ac4b22] duration-150">
+    <div className="md:flex lg:h-full lg:w-70 bg-white border-r">
+      <div className="mx-auto relative flex xl:h-full max-h-full flex-col">
+        <h1 className="text-2xl font-bold cursor-pointer text-[#ac4b22] duration-150 flex items-center  gap-x-2 p-4 sm:py-0.5 md:p-4 sm:my-2.5 md:my-0 xl:my-8">
           {user?.name}
         </h1>
-        <ul>
-          <li className="flex space-x-2 mt-10 cursor-pointer hover:text-[#ac4b22] duration-150">
+        <ul className="space-y-1 flex lg:flex-col gap-8 ml-3">
+          <li className="flex space-x-2 cursor-pointer hover:text-[#ac4b22] duration-150">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -66,7 +66,7 @@ const Sidebar = () => {
             </svg>
             <Link to={"/"} className="font-semibold">Home</Link>
           </li>
-          <li className="flex space-x-2 mt-10 cursor-pointer hover:text-[#ac4b22] duration-150">
+          <li className="flex space-x-2 cursor-pointer hover:text-[#ac4b22] duration-150">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -83,7 +83,7 @@ const Sidebar = () => {
             </svg>
             <Link to={"/message"} className="font-semibold">Message</Link>
           </li>
-          <button onClick={handleLogout} className="w-full mt-10 bg-[#693405] rounded-full py-1.5 text-white">
+          <button onClick={handleLogout} className=" bg-[#ac4b22] hover:bg-[#693405] rounded-lg text-white flex cursor-pointer items-center gap-x-3.5 px-2.5 py-2 sm:py-0 md:py-2 text-md -mt-2">
             Log Out
           </button>
         </ul>

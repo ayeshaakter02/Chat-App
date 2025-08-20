@@ -117,7 +117,7 @@ const Message = () => {
                           className="h-8 w-8 rounded-full object-cover"
                           alt=""
                         />
-                        <div className="ml-2 rounded-tl-xl rounded-tr-3xl rounded-br-3xl bg-gray-400 px-4 py-3 text-white">
+                        <div className="ml-2 rounded-tl-xl rounded-tr-3xl rounded-br-3xl bg-[#693405] px-4 py-3 text-white">
                           {msgitem.msg}
                         </div>
                       </div>

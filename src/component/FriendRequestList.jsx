@@ -39,22 +39,23 @@ const FriendRequestList = () => {
     <>
       {/* component */}
       {/* This is an example component */}
-    <div className="border border-[#ac4b22] rounded-2xl p-4 m-4 h-120">
+      <div className="sm:ml-15 md:ml-30 xl:ml-0 md:w-150 xl:w-auto md:mt-20 xl:mt-0">
+            <div className="border border-[#ac4b22] rounded-2xl p-4 sm:py-1.5 shadow-md md:p-8 m-4 h-107">
       <h1 className="text-[#ac4b22] font-bold text-xl">Friend Request List</h1>
           <ul
             role="list"
-            className=" divide-gray-100  h-100 overflow-y-scroll pr-2"
+            className=" h-[330px] sm:h-40 md:h-[300px] divide-y divide-gray-200 overflow-y-scroll dark:divide-gray-700 pr-2"
           >
             {requestList.map((item) => (
-              <li className="flex justify-between gap-x-6 py-5">
+              <li className="flex justify-between gap-x-6 py-5  items-center space-x-4">
                 <div className="flex min-w-0 gap-x-4">
                   <img
                     className="size-12 flex-none rounded-full bg-gray-50"
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    src="images/user.jpg"
                     alt=""
                   />
                   <div className="min-w-0 flex-auto">
-                    <p className="text-md font-semibold text-gray-900">
+                    <p className="text-md font-semibold text-[#693405]">
                       {item.sendername}
                     </p>
                   </div>
@@ -72,6 +73,8 @@ const FriendRequestList = () => {
             ))}
           </ul>
     </div>
+      </div>
+
     </>
   );
 };

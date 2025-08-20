@@ -9,13 +9,13 @@ const Homebar = () => {
   const { pathname } = useLocation();
   return (
     <div className="xl:hidden">
-      <nav class=" backdrop-blur-xl">
+      <nav class=" bg-[#ac4b22cc]">
         <div class="md:w-auto" id="navbar-default">
           <ul class="sm:mt-0 mt-2 md:mt-2 flex flex-row justify-center rounded-lg p-4 sm:py-0.5 md:py-4 font-medium rtl:space-x-reverse gap-3">
             <li>
               <Link
                 to={"/"}
-                className={`block rounded-sm ${pathname == "/" && "bg-indigo-600 text-white"} px-3 py-2 text-white   dark:text-white `}
+                className={`block rounded-sm ${pathname == "/" && "bg-[#693405] text-white"} px-3 py-2 text-white   dark:text-white `}
               >
                 <FaUserFriends />
               </Link>
@@ -23,7 +23,7 @@ const Homebar = () => {
             <li>
               <Link
                 to={"/friendrequest"}
-                className={`block rounded-sm ${pathname == "/friendrequest" && "bg-indigo-600 text-white"} px-3 py-2 text-white dark:text-white`}
+                className={`block rounded-sm ${pathname == "/friendrequest" && "bg-[#693405] text-white"} px-3 py-2 text-white dark:text-white`}
               >
                 <FaCodePullRequest />
               </Link>
@@ -31,7 +31,7 @@ const Homebar = () => {
             <li>
               <Link
                 to={"/userlist"}
-                className={`block rounded-sm ${pathname == "/userlist" && "bg-indigo-600 text-white"} px-3 py-2 text-white  dark:text-white `}
+                className={`block rounded-sm ${pathname == "/userlist" && "bg-[#693405] text-white"} px-3 py-2 text-white  dark:text-white `}
               >
                 <FaUser />
               </Link>
@@ -39,7 +39,7 @@ const Homebar = () => {
             <li>
               <Link
                 to={"/blocklist"}
-                className={`block rounded-sm ${pathname == "/blocklist" && "bg-indigo-600 text-white"} px-3 py-2 text-white  dark:text-white md:dark:text-blue-500`}
+                className={`block rounded-sm ${pathname == "/blocklist" && "bg-[#693405] text-white"} px-3 py-2 text-white  dark:text-white md:dark:text-[#693405]`}
               >
                 <MdOutlineBlock />
               </Link>

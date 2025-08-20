@@ -71,105 +71,109 @@ const Userlist = () => {
   };
 
   return (
-    <div className="border border-[#ac4b22] rounded-2xl p-4 m-4 h-120">
-      <h1 className="text-[#ac4b22] font-bold text-xl">User List</h1>
-      {userList.map((item) => {
-        return (
-          <ul
-            role="list"
-            className=" divide-gray-100  h-100 overflow-y-scroll pr-2"
-          >
-           {checkFriendId.includes(auth.currentUser.uid + item.id) ||
-                  checkFriendId.includes(item.id + auth.currentUser.uid) ? (
-              <li className="flex justify-between gap-x-6 py-5">
-                <div className="flex min-w-0 gap-x-4">
-                  <img
-                    className="size-12 flex-none rounded-full bg-gray-50"
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
-                  <div className="min-w-0 flex-auto">
-                    <p className="text-md font-semibold text-gray-900">
-                      {item.name}
-                    </p>
-                    <p className="mt-1 truncate text-xs/5 text-gray-500">
-                      {item.email}
-                    </p>
-                  </div>
-                </div>
-                <button className="bg-[#ac4b22] text-white font-medium rounded-2xl flex justify-center items-center p-2 cursor-pointer">
-                  Friend
-                </button>
-              </li>
-            ) : checkRequestId.includes(auth.currentUser.uid + item.id) ||
-                    checkRequestId.includes(item.id + auth.currentUser.uid) ? (
-              <li className="flex justify-between gap-x-6 py-5">
-                <div className="flex min-w-0 gap-x-4">
-                  <img
-                    className="size-12 flex-none rounded-full bg-gray-50"
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
-                  <div className="min-w-0 flex-auto">
-                    <p className="text-md font-semibold text-gray-900">
-                      {item.name}
-                    </p>
-                    <p className="mt-1 truncate text-xs/5 text-gray-500">
-                      {item.email}
-                    </p>
-                  </div>
-                </div>
-                <button className="bg-[#ac4b22] text-white font-medium rounded-2xl flex justify-center items-center p-2 cursor-pointer">
-                  Requested
-                </button>
-              </li>
-            ) : checkBlockId.includes(auth.currentUser.uid + item.id) ||
-                    checkBlockId.includes(item.id + auth.currentUser.uid) ? (
-              <li className="flex justify-between gap-x-6 py-5">
-                <div className="flex min-w-0 gap-x-4">
-                  <img
-                    className="size-12 flex-none rounded-full bg-gray-50"
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
-                  <div className="min-w-0 flex-auto">
-                    <p className="text-md font-semibold text-gray-900">
-                      {item.name}
-                    </p>
-                    <p className="mt-1 truncate text-xs/5 text-gray-500">
-                      {item.email}
-                    </p>
-                  </div>
-                </div>
-                <button className="bg-[#ac4b22] text-white font-medium rounded-2xl flex justify-center items-center p-2 cursor-pointer">
-                  Block
-                </button>
-              </li>
-            ) : (
-              <li className="flex justify-between gap-x-6 py-5">
-                <div className="flex min-w-0 gap-x-4">
-                  <img
-                    className="size-12 flex-none rounded-full bg-gray-50"
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
-                  <div className="min-w-0 flex-auto">
-                    <p className="text-md font-semibold text-gray-900">
-                      {item.name}
-                    </p>
-                    <p className="mt-1 truncate text-xs/5 text-gray-500">
-                      {item.email}
-                    </p>
-                  </div>
-                </div>
-                <button onClick={()=>handleFriendrequest(item)} className="bg-[#ac4b22] text-white font-medium rounded-2xl flex justify-center items-center p-2 cursor-pointer">
-                  Add Friend
-                </button>
-              </li>
-            )}
-          </ul>
-        );
-      })}
+    <div className="sm:ml-15 md:ml-30 xl:ml-0 md:w-150 xl:w-auto md:mt-20 xl:mt-0">
+      <div className="border border-[#ac4b22] rounded-2xl p-4 sm:py-1.5 md:p-8 m-4 h-107">
+        <h1 className="text-[#ac4b22] font-bold text-xl">User List</h1>
+        <div className="flow-root h-[330px] sm:h-40 md:h-[300px] overflow-y-scroll">
+          {userList.map((item) => {
+            return (
+              <ul role="list" className="">
+                {checkFriendId.includes(auth.currentUser.uid + item.id) ||
+                checkFriendId.includes(item.id + auth.currentUser.uid) ? (
+                  <li className="flex justify-between gap-x-6 py-5">
+                    <div className="flex min-w-0 gap-x-4">
+                      <img
+                        className="size-12 flex-none rounded-full bg-gray-50"
+                        src="images/user.jpg"
+                        alt=""
+                      />
+                      <div className="min-w-0 flex-auto">
+                        <p className="text-md font-semibold text-[#693405]">
+                          {item.name}
+                        </p>
+                        <p className="mt-1 truncate text-xs/5 text-[#693405]">
+                          {item.email}
+                        </p>
+                      </div>
+                    </div>
+                    <button className="bg-[#ac4b22] text-white font-medium rounded-2xl flex justify-center items-center p-2 cursor-pointer">
+                      Friend
+                    </button>
+                  </li>
+                ) : checkRequestId.includes(auth.currentUser.uid + item.id) ||
+                  checkRequestId.includes(item.id + auth.currentUser.uid) ? (
+                  <li className="flex justify-between gap-x-6 py-5">
+                    <div className="flex min-w-0 gap-x-4">
+                      <img
+                        className="size-12 flex-none rounded-full bg-gray-50"
+                        src="images/user.jpg"
+                        alt=""
+                      />
+                      <div className="min-w-0 flex-auto">
+                        <p className="text-md font-semibold text-[#693405]">
+                          {item.name}
+                        </p>
+                        <p className="mt-1 truncate text-xs/5 text-[#693405]">
+                          {item.email}
+                        </p>
+                      </div>
+                    </div>
+                    <button className="bg-[#ac4b22] text-white font-medium rounded-2xl flex justify-center items-center p-2 cursor-pointer">
+                      Requested
+                    </button>
+                  </li>
+                ) : checkBlockId.includes(auth.currentUser.uid + item.id) ||
+                  checkBlockId.includes(item.id + auth.currentUser.uid) ? (
+                  <li className="flex justify-between gap-x-6 py-5">
+                    <div className="flex min-w-0 gap-x-4">
+                      <img
+                        className="size-12 flex-none rounded-full bg-gray-50"
+                        src="images/user.jpg"
+                        alt=""
+                      />
+                      <div className="min-w-0 flex-auto">
+                        <p className="text-md font-semibold text-[#693405]">
+                          {item.name}
+                        </p>
+                        <p className="mt-1 truncate text-xs/5 text-[#693405]">
+                          {item.email}
+                        </p>
+                      </div>
+                    </div>
+                    <button className="bg-[#ac4b22] text-white font-medium rounded-2xl flex justify-center items-center p-2 cursor-pointer">
+                      Block
+                    </button>
+                  </li>
+                ) : (
+                  <li className="flex justify-between gap-x-6 py-5">
+                    <div className="flex min-w-0 gap-x-4">
+                      <img
+                        className="size-12 flex-none rounded-full bg-gray-50"
+                        src="images/user.jpg"
+                        alt=""
+                      />
+                      <div className="min-w-0 flex-auto">
+                        <p className="text-md font-semibold text-[#693405]">
+                          {item.name}
+                        </p>
+                        <p className="mt-1 truncate text-xs/5 text-[#693405]">
+                          {item.email}
+                        </p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => handleFriendrequest(item)}
+                      className="bg-[#ac4b22] text-white font-medium rounded-2xl flex justify-center items-center p-2 cursor-pointer"
+                    >
+                      Add Friend
+                    </button>
+                  </li>
+                )}
+              </ul>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };

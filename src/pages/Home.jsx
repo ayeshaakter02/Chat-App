@@ -7,12 +7,17 @@ import BlockList from "../component/BlockList";
 
 const Home = () => {
   return (
-    <div className="grid sm:grid-cols-1 lg:grid-cols-3 w-full">
-      <FriendList/>
-      <Userlist/>
-      <FriendRequestList/>
-      <BlockList/>
-    </div>
+    <>
+      <div className=" w-full xl:gap-8 xl:grid xl:grid-cols-2 hidden">
+        <FriendList />
+        <FriendRequestList />
+        <Userlist />
+        <BlockList />
+      </div>
+      <div className="xl:hidden ">
+        <FriendList />
+      </div>
+    </>
   );
 };
 
