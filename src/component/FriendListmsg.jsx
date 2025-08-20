@@ -54,14 +54,14 @@ const FriendListmsg = () => {
 
   return (
     <>
-      <div className="flex h-110 sm:h-50 md:h-150 xl:h-210 xl:w-60 flex-col overflow-y-scroll border-r-2 border-indigo-400">
+      <div className="flex h-110 sm:h-50 md:h-150 xl:h-210 xl:w-60 flex-col overflow-y-scroll border-r-2 border-[rgba(172,75,34,0.9)]">
         {/* search compt */}
-        <div className="border-b-2 border-indigo-400 px-2 py-4">
+        <div className="border-b-2 border-[rgba(172,75,34,0.9)] px-2 py-4">
           <input
             onChange={handleSearch}
             type="text"
             placeholder="Search chatting"
-            className="w-full rounded-2xl bg-indigo-200 px-2 py-2"
+            className="w-full rounded-2xl bg-[#ac4b2280] px-2 py-2"
           />
         </div>
         {/* end search compt */}
@@ -70,7 +70,7 @@ const FriendListmsg = () => {
           ? filterResult.map((item) => (
               <div
                 onClick={() => handleSelectuser(item)}
-                className={`flex gap-2 border-b-2 border-indigo-400 px-2 py-4 ${user?.id == item.senderid || user?.id == item.receiverid ? "bg-indigo-700" : "bg-transparent"}`}
+                className={`flex gap-2 border-b-2 border-[rgb(105,52,5)] px-2 py-4 ${user?.id == item.senderid || user?.id == item.receiverid ? "bg-[#693405]" : "bg-[rgba(172,75,34,0.8)]"}`}
               >
                 <div className="hidden sm:flex">
                   <img
@@ -95,7 +95,7 @@ const FriendListmsg = () => {
           : friendlist.map((item) => (
               <div
                 onClick={() => handleSelectuser(item)}
-                className={`flex gap-2 border-b-2 border-indigo-400 px-2 py-4 ${user?.id == item.senderid || user?.id == item.receiverid ? "bg-indigo-700" : "bg-transparent"}`}
+                className={`flex gap-2 border-b-2 border-[rgba(172,75,34,0.9)] px-2 py-4 ${user?.id == item.senderid || user?.id == item.receiverid ? "bg-[#693405]" : "bg-[rgba(172,75,34,0.8)]"}`}
               >
                 <div className="hidden sm:flex">
                   <img
