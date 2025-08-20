@@ -4,7 +4,6 @@ import {
   RouterProvider,
 } from "react-router";
 import Signup from './pages/Signup';
-import Not_found from './pages/not_found';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Message from './pages/Message';
@@ -13,6 +12,8 @@ import Userlist from './component/Userlist';
 import BlockList from './component/BlockList';
 import FriendRequestList from './component/FriendRequestList';
 import FriendListmsg from './component/FriendListmsg';
+import EmojiPicker from 'emoji-picker-react';
+import Not_found from './pages/Not_found';
 
 
 const router = createBrowserRouter([
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
     Component: Rootlayout,
     children: [
       { index: true, Component: Home },
-      { path: "message", Component: Message }
+      { path: "/message", Component: Message }
     ]
   },
 
@@ -48,10 +49,14 @@ const router = createBrowserRouter([
     path: "/friendListmsg",
     Component: FriendListmsg,
   },
+    {
+    path: "/emoji",
+    Component: EmojiPicker,
+  },
   {
     path: "*",
     Component: Not_found,
-  },
+  }
 ]);
 
 const App = () => {
