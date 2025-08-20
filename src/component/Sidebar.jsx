@@ -49,7 +49,7 @@ const Sidebar = () => {
           {user?.name}
         </h1>
         <ul className="space-y-1 flex lg:flex-col gap-8 ml-3">
-          <li className="flex space-x-2 cursor-pointer hover:text-[#ac4b22] duration-150">
+          <li className={`flex space-x-2 cursor-pointer hover:text-[#ac4b22] duration-150 ${pathname == "/" && "text-[#ac4b22]"}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -66,7 +66,7 @@ const Sidebar = () => {
             </svg>
             <Link to={"/"} className="font-semibold">Home</Link>
           </li>
-          <li className="flex space-x-2 cursor-pointer hover:text-[#ac4b22] duration-150">
+          <li className={`flex space-x-2 cursor-pointer hover:text-[#ac4b22] duration-150 ${pathname == "/message" && "text-[#ac4b22]"}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
